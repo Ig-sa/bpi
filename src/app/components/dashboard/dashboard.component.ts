@@ -108,10 +108,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.lineChartLabelsExit = response.exits.labels;
 
         this.lineChartDataCurrent = [ 
-          { data: response.exits.data.data[0], label: this.A1 },
-          { data: response.exits.data.data[1], label: this.A2 },
-          { data: response.exits.data.data[2], label: this.A3 },
-          { data: response.exits.data.data[3], label: this.A4 },
+          { data: response.current.data.data[0], label: this.A1 },
+          { data: response.current.data.data[1], label: this.A2 },
+          { data: response.current.data.data[2], label: this.A3 },
+          { data: response.current.data.data[3], label: this.A4 },
         ];
         this.lineChartLabelsCurrent = response.current.labels;
         
@@ -123,7 +123,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
    }
 
-  ngOnInit() {
+  async ngOnInit() {
     // Tables
     this.aisleRows = [{ id: 1, status: false }, { id: 2, status: false }, { id: 3, status: false }, { id: 4, status: false }];
     this.storageRows = [{ id: 1, status: false }, { id: 2, status: false }];
@@ -143,6 +143,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
       { data: [], label: this.A4 },
     ];
     this.lineChartLabelsEntry = this.lineChartLabelsCurrent = this.lineChartLabelsExit = [];
+	
+	await this.dashboardRefresh.updateDashboard();
 
   }
 
