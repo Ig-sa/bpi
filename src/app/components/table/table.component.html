@@ -1,0 +1,25 @@
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="table-primary">
+            <tr>
+                <th *ngFor="let header of headers"> {{ header }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of rows">
+                <ng-container *ngFor="let item of row | keyvalue">
+                   <th *ngIf="item.key != 'status'">
+                            {{ item.value }}
+                    </th>
+                    <th *ngIf="item.key == 'status'">
+                        <i *ngIf="row.status && status == 0" class="fas fa-lightbulb fa-lg status-ok "></i>
+                        <i *ngIf="!row.status && status == 0" class="fas fa-lightbulb fa-lg status-ko "></i>
+
+                        <i *ngIf="row.status && status == 1" class="fas fa-power-off fa-lg status-ok "></i>
+                        <i *ngIf="!row.status && status == 1" class="fas fa-power-off fa-lg status-ko "></i>
+                    </th>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>

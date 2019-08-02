@@ -1,0 +1,115 @@
+<div class="dashboard">
+    <div class="row">
+        <div class="col-3" style= "padding-bottom: 10px;">
+            <div class="card text-center">
+                <div class="card-header">
+                    Aisles Data
+                </div>
+                <div class="card-body">
+                    <app-table [headers]="aisleHeaders" [rows]="aisleRows" [status]="aisleStatus"></app-table>
+                </div>
+            </div>
+        </div>
+        <div class="col-3" style= "padding-bottom: 10px;">
+            <div class="card text-center">
+                <div class="card-header">
+                    Entry
+                </div>
+                <div class="card-body">
+                    <app-chart-line [lineChartData]="lineChartDataEntry" [lineChartLabels]="lineChartLabelsEntry"
+                        [lineChartColors]="lineChartColorsEntry">
+                    </app-chart-line>
+                </div>
+            </div>
+        </div>
+        <div class="col-3" style= "padding-bottom: 10px;">
+            <div class="card text-center">
+                <div class="card-header">
+                    Current
+                </div>
+                <div class="card-body">
+                    <app-chart-line [lineChartData]="lineChartDataCurrent" [lineChartLabels]="lineChartLabelsCurrent"
+                        [lineChartColors]="lineChartColorsCurrent">
+                    </app-chart-line>
+                </div>
+            </div>
+        </div>
+        <div class="col-3" style= "padding-bottom: 10px;">
+            <div class="card text-center">
+                <div class="card-header">
+                    Exit
+                </div>
+                <div class="card-body">
+                    <app-chart-line [lineChartData]="lineChartDataExit" [lineChartLabels]="lineChartLabelsExit"
+                        [lineChartColors]="lineChartColorsExit">
+                    </app-chart-line>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="w-100"></div>
+
+        <div class="col-3" style= "padding-bottom: 10px;">
+            <div class="card text-center">
+                <div class="card-header">
+                    Storages Data
+                </div>
+                <div class="card-body">
+                    <app-table [headers]="storageHeaders" [rows]="storageRows" [status]="storageStatus"></app-table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3" style= "padding-bottom: 10px;">
+            <div class="card text-center">
+                <div class="card-header">
+                    Storage #1
+                </div>
+                <div class="card-body">
+                    <app-chart-pie [pieChartLabels]="pieChartLabels1" [pieChartData]="pieChartData1"
+                        [pieChartColors]="pieChartColors1"></app-chart-pie>
+                </div>
+            </div>
+        </div>
+        <div class="col-3" style= "padding-bottom: 10px;">
+            <div class="card text-center">
+                <div class="card-header">
+                    Storage #2
+                </div>
+                <div class="card-body">
+                    <app-chart-pie [pieChartLabels]="pieChartLabels2" [pieChartData]="pieChartData2"
+                        [pieChartColors]="pieChartColors2"></app-chart-pie>
+                </div>
+            </div>
+        </div>
+        <div class="col-3" style= "padding-bottom: 10px;">
+            <div class="card text-center">
+                <div class="card-header">
+                    Storage Total
+                </div>
+                <div class="card-body">
+                    <app-chart-pie [pieChartLabels]="pieChartLabelsTotal" [pieChartData]="pieChartDataTotal"
+                        [pieChartColors]="pieChartColorsTotal"></app-chart-pie>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="col-12" style= "padding-bottom: 10px;">
+            <div class="card text-center">
+                <div class="card-header">
+                    Current Loads in System
+                </div>
+                <div class="card-body">
+                    <app-chart-area [lineChartData]="lineChartDataLoad" [lineChartLabels]="lineChartLabelsLoad">
+                    </app-chart-area>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>

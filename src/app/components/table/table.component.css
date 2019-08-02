@@ -1,0 +1,18 @@
+.status-ok {
+    color: green;
+    filter: drop-shadow(1px 3px #272634);
+}
+
+.status-ko {
+    color: red;
+    filter: drop-shadow(1px 3px #272634);
+}
+
+th {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.table-responsive {
+    margin-bottom: -25px;
+}
