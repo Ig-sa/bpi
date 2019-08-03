@@ -15,6 +15,7 @@ pipeline {
 
 		stage('Test') {
             steps {
+				sh 'echo true'
 				//sh 'npm run test'
             }
         }
