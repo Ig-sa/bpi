@@ -24,5 +24,13 @@ pipeline {
 				sh 'npm run build'
 			}
 		}
+		
+		stage('Deploy') {
+			steps {
+				sh 'docker rm $(docker stop $(docker ps -a -q --filter ancestor=master-bpi --format="{{.ID}}"))'
+				sh 'docker build -t master-bpi .'
+				sh 'docker run -p 80:80 -d master-bpi'
+			}
+		}
     }
 }
