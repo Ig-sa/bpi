@@ -23,7 +23,7 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 EXPOSE 80
 
 # Copy this repo into place.
-ADD dist/master-dashboard /var/www/site
+ADD dist/master-dashboard /var/www/html
 
 # Update the default apache site with the config we created.
 ADD apache-config.conf /etc/apache2/sites-enabled/000-default.conf
