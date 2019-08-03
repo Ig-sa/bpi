@@ -22,6 +22,7 @@ pipeline {
 		
 		stage('Build') {
 			steps {
+				sh 'rm -rf dist'
 				sh 'npm run build'
 			}
 		}
