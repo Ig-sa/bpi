@@ -29,8 +29,6 @@ pipeline {
 		
 		stage('Deploy') {
 			steps {
-				sh 'ls -las'
-				sh 'ls -las dist/master-dashboard'
 				sh 'sudo docker ps -q --filter ancestor="developer-bpi" | xargs -r sudo docker stop'
 				sh 'sudo docker build -t developer-bpi .'
 				sh 'sudo docker run -p 8080:80 -d developer-bpi'
