@@ -29,7 +29,7 @@ pipeline {
 		
 		stage('Deploy') {
 			steps {
-				sh 'sudo docker rm $(sudo docker stop $(sudo docker ps -a -q --filter ancestor=master-bpi --format="{{.ID}}"))'
+				sh 'sudo docker ps -a -q --filter ancestor=master-bpi'
 				sh 'sudo docker build -t master-bpi .'
 				sh 'sudo docker run -p 80:80 -d master-bpi'
 			}
