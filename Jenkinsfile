@@ -22,6 +22,7 @@ pipeline {
 		stage('Build') {
 			steps {
 				sh 'npm run build'
+				sh 'cp dist/master-dashboard/* /home/deployments/bpi-master/'
 			}
 		}
 		
