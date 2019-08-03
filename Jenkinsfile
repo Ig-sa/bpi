@@ -1,5 +1,9 @@
 pipeline {
     agent { label 'NodeJS' }
+	options {
+		timeout(time: 15, unit: 'MINUTES') 
+	}
+	
     stages {
 
 		stage('Dependencies') {
@@ -15,11 +19,9 @@ pipeline {
             }
         }
 		
-		timeout(time: 900, unit: 'SECONDS') {
-			stage('Build') {
-				steps {
-					sh 'npm run build'
-				}
+		stage('Build') {
+			steps {
+				sh 'npm run build'
 			}
 		}
     }
