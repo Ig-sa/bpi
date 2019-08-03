@@ -31,7 +31,7 @@ pipeline {
 			steps {
 				sh 'sudo docker ps -q --filter ancestor="master-bpi" | xargs -r sudo docker stop'
 				sh 'sudo docker build -t master-bpi .'
-				sh 'sudo docker run -p 8080:80 -d master-bpi'
+				sh 'sudo docker run -p 80:80 -d master-bpi'
 			}
 		}
     }
