@@ -28,6 +28,8 @@ pipeline {
 		
 		stage('Deploy') {
 			steps {
+				sh 'ls -las'
+				sh 'ls -las dist/master-dashboard'
 				sh 'sudo docker ps -a -q --filter ancestor=master-bpi'
 				sh 'sudo docker build -t master-bpi .'
 				sh 'sudo docker run -p 80:80 -d master-bpi'
