@@ -29,9 +29,10 @@ pipeline {
 		
 		stage('Deploy') {
 			steps {
-				sh 'sudo docker ps -q --filter ancestor="developer-bpi" | xargs -r sudo docker stop'
-				sh 'sudo docker build -t developer-bpi .'
-				sh 'sudo docker run -p 8080:80 -d developer-bpi'
+				sh 'sudo docker container stop developer-bpi-container | true'
+                sh 'sudo docker rm developer-bpi-container | true'
+                sh 'sudo docker build -t developer-bpi .'
+                sh 'sudo docker run --name=developer-bpi-container -p 8080:80 -d developer-bpi'
 			}
 		}
     }
