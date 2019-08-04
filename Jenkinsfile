@@ -29,9 +29,10 @@ pipeline {
 		
 		stage('Deploy') {
 			steps {
-				sh 'sudo docker ps -q --filter ancestor="master-bpi" | xargs -r sudo docker stop'
+				sh 'sudo docker container stop master-bpi-container'
+				sh 'sudo docker rm master-bpi-container'
 				sh 'sudo docker build -t master-bpi .'
-				sh 'sudo docker run -p 80:80 -d master-bpi'
+				sh 'sudo docker run --name=master-bpi-container -p 80:80 -d master-bpi'
 			}
 		}
     }
